@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Skyvespill</title>
+        <style>
+            
+            h1 {
+                background-color: darkgoldenrod;
+            }
+            div {
+                color: green;
+                background-color:lightblue;
+                padding: 10px;
+                margin: 10px;
+                border: solid blue 2px;
+                width: 30px;
+                height: 30px;
+                float: left;
+            }
+           
+            div.FPL {
+                clear: left;
+            }
+        </style>
+    </head>
+
+<body>
+
+    <h1 id="overskrift" onclick="seier(this, 'r1k1', 'r1k2', 'r1k3', 'r2k1', 'r2k2', 'r2k3', 'r3k1', 'r3k2', 'r3k3')">Når tallene står i riktig rekkefølge, klikk her for seier</h1>
+
+    <div id="r1k1" class="FPL" onclick="trykk(this, 'r1k2', 'r2k1', 'r2k1', 'r2k1')">5</div>
+    <div id="r1k2" onclick="trykk(this, 'r1k3', 'r2k2', 'r1k1', 'r1k1')">7</div>
+    <div id="r1k3" onclick="trykk(this, 'r2k3', 'r1k2', 'r1k2', 'r1k2')">4</div>
+
+    <div id="r2k1" class="FPL" onclick="trykk(this, 'r1k1', 'r2k2', 'r3k1', 'r3k1')">8</div>
+    <div id="r2k2" onclick="trykk(this, 'r1k2', 'r2k3', 'r3k2', 'r2k1')"></div>
+    <div id="r2k3" onclick="trykk(this, 'r1k3', 'r3k3', 'r2k2', 'r2k2')">2</div>
+
+    <div id="r3k1" class="FPL" onclick="trykk(this, 'r2k1', 'r3k2', 'r3k2', 'r3k2', 'r3k2')">1</div>
+    <div id="r3k2" onclick="trykk(this, 'r2k2', 'r3k3', 'r3k1', 'r3k1')">6</div>
+    <div id="r3k3" onclick="trykk(this, 'r2k3', 'r3k2', 'r3k2', 'r3k2')">3</div>
+   
+
+    <script>
+        function trykk(tagElement, alt1, alt2, alt3, alt4) {
+            if (document.getElementById(alt1).innerHTML == '') {
+                document.getElementById(alt1).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            if (document.getElementById(alt2).innerHTML == '') {
+                document.getElementById(alt2).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            if (document.getElementById(alt3).innerHTML == '') {
+                document.getElementById(alt3).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+            if (document.getElementById(alt4).innerHTML == '') {
+                document.getElementById(alt4).innerHTML = tagElement.innerHTML;
+                tagElement.innerHTML = '';
+            }
+        }
+        function seier(tagElement, rute1, rute2, rute3, rute4, rute5, rute6, rute7, rute8, rute9) {
+            if (document.getElementById(rute1).innerHTML == '1', document.getElementById(rute2).innerHTML == '2', document.getElementById(rute3).innerHTML == '3', document.getElementById(rute4).innerHTML == '4', document.getElementById(rute5).innerHTML == '5', document.getElementById(rute6).innerHTML == '6', document.getElementById(rute7).innerHTML == '7', document.getElementById(rute8).innerHTML == '8', document.getElementById(rute9).innerHTML == ''){
+                tagElement.innerHTML = 'Gratulerer!';
+            }
+        }
+        
+
+        </script>
+
+</body>
